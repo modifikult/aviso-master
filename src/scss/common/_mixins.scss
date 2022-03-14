@@ -1,0 +1,54 @@
+@import "vars";
+
+@mixin btn($color, $bg, $border, $h-color, $h-bg, $h-border, $br: 5px) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: $br;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  position: relative;
+  background: $bg;
+  border: $border;
+  transition: all .4s ease;
+
+  &:after {
+    content: '';
+    position: absolute;
+    border-radius: $br;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .4s ease;
+    background: $h-bg;
+    z-index: 1;
+  }
+
+  span {
+    display: block;
+    margin-right: 25px;
+    z-index: 5;
+    position: relative;
+  }
+  svg {
+    z-index: 5;
+  }
+
+  &:hover {
+    color: $h-color;
+    border: $h-border;
+    cursor: pointer;
+    &:after {
+      opacity: 1;
+
+    }
+  }
+}

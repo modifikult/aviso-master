@@ -1,0 +1,36 @@
+@import "layout";
+
+// header
+@import "header/header";
+
+// footer
+@import "footer/footer";
+
+// assist
+@import "assist/buttons";
+@import "assist/dropdown";
+@import "assist/slider";
+@import "assist/animations";
+@import "assist/breadcrumb";
+@import "assist/head-page";
+@import "assist/pagination";
+
+
+
+// section
+@import "section/hero";
+@import "section/order";
+@import "section/distribution";
+@import "section/news";
+@import "section/logistics";
+@import "section/seo";
+@import "section/about";
+@import "section/our-team";
+@import "section/licenses";
+@import "section/services";
+@import "section/reviews";
+@import "section/car-park";
+@import "section/blog";
+@import "section/blog-details";
+@import "section/contact";
+@import "section/order-the-car.scss";

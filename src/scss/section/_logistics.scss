@@ -1,0 +1,279 @@
+@import "../common/mixins";
+@import "../common/vars";
+
+.logistics {
+  background: $primary-color;
+  position: relative;
+  height: 100vh;
+  min-height: 957px;
+}
+
+.logistics-content {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 80px;
+  margin: 0 14.09% 0 4.86%;
+
+  > div {
+    color: #fff;
+    z-index: 5;
+
+    &:first-of-type {
+      display: flex;
+      flex-direction: column;
+    }
+
+    span {
+      &:first-of-type {
+        font-size: 64px;
+        line-height: 75px;
+        font-weight: 700;
+        margin-bottom: 25px;
+      }
+
+      &:last-of-type {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 500;
+        max-width: 190px;
+      }
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 300;
+      max-width: 502px;
+    }
+  }
+}
+
+.map {
+  position: absolute;
+  top: 33px;
+  left: 0;
+
+  svg {
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    path[data-disable='false'] {
+      fill: #26684B;
+
+      &:hover {
+        fill: #26684B;
+        stroke: #fff;
+        cursor: pointer;
+      }
+    }
+
+    path {
+      transition: all .3s ease;
+      z-index: 5;
+      opacity: 0;
+    }
+  }
+
+  .description {
+    position: absolute;
+    z-index: 1;
+
+    pointer-events: none;
+
+    .circle {
+      position: relative;
+      width: 11px;
+      height: 11px;
+      border-radius: 100%;
+      background: #fff;
+      opacity: 0;
+      animation: .2s ease forwards;
+
+      .circle-shadow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 11px;
+        height: 11px;
+        background: transparent;
+        border-radius: 100%;
+        animation: .4s ease forwards;
+        animation-delay: .2s;
+      }
+
+      .line {
+        position: absolute;
+        border-bottom: 1px solid #fff;
+        width: 510px;
+        right: 11px;
+        top: 5px;
+        animation: .4s ease forwards;
+        animation-delay: .6s;
+        opacity: 0;
+      }
+    }
+
+    .text {
+      color: #fff;
+      width: 180px;
+      position: absolute;
+      top: 13px;
+      left: -510px;
+      opacity: 0;
+      animation: .4s ease forwards;
+      animation-delay: 1s;
+
+      .name {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 500;
+        display: block;
+        margin-bottom: 6px;
+
+      }
+
+      .address {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+        display: block;
+      }
+    }
+
+  }
+
+  .description.description-revert {
+    transform: rotate(180deg) scale(1, -1);
+
+    .text {
+      transform: scale(-1, 1);
+      text-align: right;
+    }
+  }
+}
+
+
+@media screen and (max-width: 1439px) {
+  .logistics-content {
+    margin: 0 50px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .logistics-content {
+    > div {
+
+      &:first-of-type {
+      }
+
+      span {
+        &:first-of-type {
+          font-size: 56px;
+          line-height: 65px;
+        }
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 28px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .logistics-content {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+
+    > div {
+
+      span {
+        &:first-of-type {
+          font-size: 47px;
+          line-height: 50px;
+        }
+
+        &:last-of-type {
+          font-size: 16px;
+          line-height: 18px;
+        }
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+  }
+  .map {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: -35%;
+
+    .description {
+      transform: rotate(-90deg);
+
+      .circle {
+        width: 5px;
+        height: 5px;
+        .circle-shadow {
+          width: 5px;
+          height: 5px;
+        }
+        .line {
+          width: 247px;
+          right: 0;
+          top: 2px;
+        }
+      }
+
+      .text {
+        transform: rotate(90deg);
+        top: -19px;
+        left: -353px;
+      }
+    }
+
+    .description.description-revert {
+      transform: rotate(-90deg);
+
+      .text {
+        transform: rotate(90deg);
+        text-align: left;
+      }
+    }
+
+    svg {
+      path {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .map {
+    margin-top: -30%;
+  }
+}
+
+
+@media screen and (max-width: 575px) {
+  .map {
+    margin-top: 0;
+    .description {
+      .text {
+        transform: rotate(90deg);
+        top: -19px;
+        left: -256px;
+      }
+    }
+  }
+}

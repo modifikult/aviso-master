@@ -1,0 +1,311 @@
+@import "../common/vars";
+@import "../common/mixins";
+
+.services {
+  > .breadcrumb {
+    display: none;
+  }
+}
+
+.services-hero {
+  display: flex;
+  position: relative;
+  z-index: 5;
+
+
+  .image {
+    width: 41.11%;
+    position: relative;
+
+    .bg {
+      width: 0;
+      overflow: hidden;
+      position: absolute;
+      right: 0;
+      height: 100%;
+    }
+
+    img {
+      width: 41.11vw;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    svg {
+      position: absolute;
+      bottom: -70px;
+      left: -110px;
+      overflow: hidden;
+
+      path {
+        stroke-width: 0;
+        width: 0;
+        stroke: none;
+        stroke-opacity: 0;
+      }
+    }
+  }
+
+  .text {
+    width: 58.89%;
+    padding: 0 191px 10% 5.34%;
+
+    .breadcrumb {
+      margin: 54px 0 12px;
+    }
+
+    > span {
+      margin-bottom: 30px;
+    }
+
+    p, li {
+      color: $secondary-color;
+    }
+
+    p {
+      margin: 30px 0;
+    }
+
+    ul {
+      margin-bottom: 30px;
+      padding-left: 18px;
+    }
+  }
+}
+
+.services-order {
+  width: 100%;
+  position: relative;
+  margin-top: -65px;
+
+  .image {
+    position: absolute;
+    left: 0;
+    height: 79%;
+    margin-top: calc((100% - 79%) / 4);
+    z-index: 10;
+
+    .bg {
+      overflow: hidden;
+      width: 0;
+      height: 100%;
+
+      img {
+        width: 48.95vw;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  > .text {
+    width: 71.87%;
+    height: auto;
+    background: $primary-color;
+    margin-left: auto;
+    padding-bottom: 100px;
+    padding-left: 30.55%;
+
+    > ul {
+      padding: 255px 0 0 0;
+
+      li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 50px;
+
+        .icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex: 0 0 80px;
+          width: 80px;
+          height: 80px;
+          background: #313E48;
+          border-radius: 100%;
+        }
+
+        > .text {
+          flex: 0 0 calc(100% - (80px + 30px));
+          margin-left: 30px;
+
+          span {
+            color: #fff;
+            font-size: 34px;
+            line-height: 40px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 17px;
+            max-width: 300px;
+          }
+
+          p {
+            color: #fff;
+            max-width: 250px;
+          }
+        }
+      }
+    }
+
+    a {
+      margin: 76px 0 0;
+      width: 250px;
+      height: 80px;
+    }
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .services-hero {
+    .image {
+      width: 50%;
+
+      img {
+        width: 50vw;
+      }
+
+      svg {
+        width: 60%;
+      }
+    }
+
+    .text {
+      width: 50%;
+      padding: 0 30px 10% 5.34%;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .services {
+    > .breadcrumb {
+      display: block;
+      padding: 40px 20px;
+    }
+  }
+
+  .services-hero {
+    flex-direction: column;
+
+    .image {
+      width: 100%;
+      padding: 0 20px;
+      position: relative;
+      order: 1;
+      height: 600px;
+
+      .bg {
+        width: 100%;
+        position: relative;
+      }
+
+      img {
+        width: 100vw;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      svg {
+        display: none;
+      }
+    }
+
+    .text {
+      width: 100%;
+      padding: 30px 20px 80px;
+      order: 2;
+
+      .breadcrumb {
+        display: none;
+      }
+    }
+  }
+
+  .services-order {
+    width: 100%;
+    background: $primary-color;
+    position: relative;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+
+    .image {
+      height: 600px;
+      padding: 0 20px;
+      margin-top: 30px;
+      position: relative;
+
+      .bg {
+        width: 100%;
+
+        img {
+          width: 100vw;
+          position: relative;
+        }
+      }
+    }
+
+    > .text {
+      width: 100%;
+      padding: 0 20px 80px;
+
+      > ul {
+        padding: 60px 0 0 0;
+
+        li {
+          > .text {
+            p {
+              max-width: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .services-hero {
+    .image {
+      height: 450px;
+    }
+  }
+
+  .services-order {
+    .image {
+      height: 450px;
+    }
+
+    .text {
+      ul {
+        li {
+          .text {
+            span {
+              font-size: 28px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .services-hero {
+    .image {
+      height: 367px;
+    }
+  }
+
+  .services-order {
+    .image {
+      height: 371px;
+    }
+    .text {
+      a {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+@import "../common/mixins";
+@import "../common/vars";
+
+.distribution {
+  height: 100vh;
+  min-height: 600px;
+  position: relative;
+}
+
+.distribution-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .section-title {
+    max-width: 700px;
+    color: #fff;
+    margin-bottom: 40px;
+  }
+}
+
+.distribution-icons {
+  width: 770px;
+  display: flex;
+  flex-wrap: wrap;
+
+  .icon-self, a {
+    width: calc(100% / 3);
+    height: 188px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 35px 20px 30px;
+  }
+
+  .icon-self {
+    background: #FFFFFFB2;
+    border: 1px solid #EBEBEB;
+    span {
+      text-transform: uppercase;
+      font-size: 16px;
+      line-height: 18px;
+      font-weight: 500;
+    }
+  }
+
+  a {
+    border-radius: 0;
+    padding: 15px 20px 30px;
+
+    svg {
+      order: 1;
+      align-self: flex-end;
+    }
+    span {
+      order: 2;
+      align-self: flex-start;
+    }
+
+    &:after {
+      border-radius: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .distribution {
+    height: auto;
+    min-height: 100vh;
+  }
+  .distribution-content {
+    padding: 80px 0;
+  }
+  .distribution-icons {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .icon-self, a {
+      width: calc(100% / 2);
+    }
+
+    a {
+      span {
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,670 @@
+@import "../common/mixins";
+@import "../common/vars";
+
+.order {
+  padding: 0 0 100px;
+
+  .section-title {
+    max-width: 450px;
+    margin-bottom: 45px;
+  }
+}
+
+.order-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-time {
+  flex: 0 0 285px;
+  margin-right: 40px;
+
+  svg {
+    path[data-anim='rotate'] {
+      transform: rotate(0);
+      transform-origin: 50% 56%;
+      animation: rotate 2000ms infinite linear;
+    }
+  }
+
+  > div {
+    strong, span {
+      font-size: 24px;
+      line-height: 28px;
+      display: block;
+    }
+
+    strong {
+      font-weight: 700;
+      color: $green;
+      margin-top: 29px;
+      text-transform: uppercase;
+    }
+
+    span {
+      margin-top: 30px;
+      font-weight: 300;
+    }
+  }
+}
+
+.order-form {
+  flex: 0 0 calc(100% - (285px + 40px));
+
+  form {
+    width: 100%;
+    border: 4px solid #65D521;
+    border-top: none;
+
+    label {
+      input, textarea {
+        padding: 0 15px;
+        background: #FFFFFF;
+        border: 1px solid #E1E1E1;
+        font-size: 16px;
+        line-height: 22px;
+
+        &::placeholder {
+          font-size: 16px;
+          line-height: 22px;
+          color: $primary-color;
+        }
+      }
+    }
+
+    header {
+      padding: 0 55px;
+      display: flex;
+      justify-content: space-between;
+
+      > div {
+        position: relative;
+        margin-top: -18px;
+        display: flex;
+        align-items: center;
+
+        &:first-of-type {
+          &:before {
+            content: '';
+            position: absolute;
+            border-bottom: 4px solid #65D521;
+            width: 56px;
+            left: -56px;
+            top: calc(50% - 2px);
+          }
+        }
+
+        &:last-of-type {
+          &:after {
+            content: '';
+            position: absolute;
+            border-bottom: 4px solid #65D521;
+            width: 56px;
+            right: -56px;
+            top: calc(50% - 2px);
+          }
+
+          > span {
+            &:first-child {
+              position: relative;
+
+              &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 40px;
+                width: 74px;
+                border: 1px solid #C5C5C5;
+              }
+
+            }
+
+            &:last-child {
+              margin-right: 54px;
+            }
+          }
+        }
+
+        > span {
+          font-size: 24px;
+          line-height: 28px;
+          font-weight: 700;
+
+          &:first-child {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #7D92A4;
+            border-radius: 100%;
+            color: #C2CED7;
+            margin-right: 17px;
+          }
+
+          &:last-child {
+            color: #7D92A4;
+          }
+        }
+      }
+
+      > div.active {
+        > span {
+          &:first-child {
+            color: #fff;
+            background: #27333D;
+          }
+
+          &:last-child {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+
+    > span {
+      display: block;
+      margin: 45px 0 0;
+      font-size: 14px;
+      line-height: 16px;
+      padding: 0 55px;
+    }
+
+    > div {
+      display: block;
+
+      > div {
+        > span {
+          padding: 35px 55px 0 55px;
+          display: block;
+          font-size: 24px;
+          line-height: 28px;
+          font-weight: 700;
+          margin-bottom: 20px;
+        }
+
+        > div:not(.accordion-content) {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          padding: 0 55px;
+
+          > * {
+            display: block;
+            width: 47.75%;
+            margin-bottom: 20px;
+          }
+
+          input {
+            width: 100%;
+            height: 50px;
+          }
+        }
+
+        .accordion-title {
+          padding: 0;
+          display: inline-block;
+          margin: 50px 55px 10px;
+          color: $green;
+          border-bottom: 1px dotted $green;
+          font-size: 18px;
+          line-height: 22px;
+
+          &:after {
+            content: ' +';
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .accordion-title.open {
+          &:after {
+            content: ' -';
+          }
+        }
+
+        .accordion-content {
+          background: #F9F9F9;
+          padding: 0 55px 0 55px;
+          flex-direction: column;
+          width: 100%;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height .4s ease;
+
+          > div {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            input {
+              width: 100%;
+              height: 50px;
+            }
+
+            &:first-of-type {
+              padding-top: 35px;
+
+              label {
+                width: 47.75%;
+              }
+            }
+
+            &:last-of-type {
+              > span {
+                padding: 35px 0 0;
+                display: block;
+                font-size: 24px;
+                line-height: 28px;
+                font-weight: 700;
+                margin-bottom: 20px;
+              }
+
+              > div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                &:first-of-type {
+                  label {
+                    width: 23%;
+                    margin-bottom: 40px;
+                  }
+                }
+
+                &:last-of-type {
+                  width: 100%;
+
+                  > div {
+                    width: 47.75%;
+                    margin-bottom: 30px;
+                  }
+                }
+              }
+
+              > label {
+                width: 100%;
+                display: block;
+                padding-bottom: 30px;
+
+                textarea {
+                  padding: 15px 15px;
+                  width: 100%;
+                  height: 265px;
+                  resize: none;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      a, button {
+        width: 214px;
+        height: 80px;
+        margin: 30px 0 30px 55px;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 1400px) {
+  .order-form {
+    form {
+      header {
+        > div {
+          &:last-of-type {
+            > span {
+              &:first-child {
+                &:before {
+                  width: 40px;
+                }
+              }
+
+              &:last-child {
+                margin-right: 20px;
+              }
+            }
+          }
+
+          > span {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .order-time {
+    flex: 0 0 225px;
+    margin-right: 25px;
+  }
+  .order-form {
+    flex: 0 0 calc(100% - (225px + 25px));
+
+    form {
+      header {
+        justify-content: center;
+
+        > div {
+          display: none;
+
+          &:before, {
+            content: '';
+            position: absolute;
+            border-bottom: 4px solid #65D521;
+            width: 56px;
+            left: -56px;
+            top: calc(50% - 2px);
+          }
+
+          &:after {
+            content: '';
+            position: absolute;
+            border-bottom: 4px solid #65D521;
+            width: 56px;
+            right: -56px;
+            top: calc(50% - 2px);
+          }
+
+        }
+
+        > div.active {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+
+          > span {
+            &:first-of-type {
+              &:before {
+                display: none;
+              }
+            }
+
+            &:last-of-type {
+              margin-right: 0;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .order {
+    padding: 0 0 80px;
+
+    .section-title {
+      max-width: 450px;
+      margin-bottom: 45px;
+    }
+  }
+
+  .order-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .order-form {
+    flex: 0 0 100%;
+
+    form {
+      header {
+        justify-content: center;
+
+        > div {
+          display: none;
+
+          &:before, {
+            content: '';
+            position: absolute;
+            border-bottom: 4px solid #65D521;
+            width: 56px;
+            left: -56px;
+            top: calc(50% - 2px);
+          }
+
+          &:after {
+            content: '';
+            position: absolute;
+            border-bottom: 4px solid #65D521;
+            width: 56px;
+            right: -56px;
+            top: calc(50% - 2px);
+          }
+
+        }
+
+        > div.active {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+
+          > span {
+            &:first-of-type {
+              &:before {
+                display: none;
+              }
+            }
+
+            &:last-of-type {
+              margin-right: 0;
+            }
+          }
+
+        }
+      }
+    }
+  }
+
+  .order-time {
+    flex: 0 0 auto;
+    margin-right: 0;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+
+    svg {
+      flex: 0 0 100px;
+      height: 100px;
+    }
+
+    div {
+      margin-left: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      strong, span {
+        font-size: 19px;
+        line-height: 22px;
+      }
+
+      strong {
+        margin-top: 0;
+
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .order {
+    .container {
+      padding: 0;
+    }
+
+    .section-title {
+      padding: 0 20px;
+    }
+  }
+
+  .order-form {
+    padding: 0 20px;
+
+    form {
+      border: none;
+
+      header {
+        padding: 0;
+
+        > div {
+          &:after, &:before {
+            display: none;
+          }
+        }
+
+        > div.active {
+          justify-content: flex-start;
+        }
+      }
+
+      > span {
+        padding: 0;
+      }
+
+      > div {
+        display: block;
+
+        > div {
+          > span {
+            padding: 10px 0 30px;
+            margin: 0;
+          }
+
+          > div:not(.accordion-content) {
+            padding: 0;
+          }
+
+          .accordion-title {
+            margin: 20px 0 37px;
+          }
+
+          .accordion-content {
+            width: 100vw;
+            margin-left: -20px;
+            padding: 0 20px;
+          }
+        }
+
+        a, button {
+          margin: 30px 0 0;
+        }
+      }
+    }
+  }
+
+  .order-time {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .order-form {
+    padding: 0 20px;
+
+    form {
+      border: none;
+
+      header {
+        padding: 0;
+
+        > div {
+          &:after, &:before {
+            display: none;
+          }
+        }
+
+        > div.active {
+          justify-content: flex-start;
+        }
+      }
+
+      > span {
+        padding: 0;
+      }
+
+      > div {
+        display: block;
+
+        > div {
+          > span {
+            padding: 10px 0 30px;
+            margin: 0;
+          }
+
+          > div:not(.accordion-content) {
+            > * {
+              width: 100%;
+            }
+          }
+
+          .accordion-title {
+            margin: 20px 0 37px;
+          }
+
+
+          .accordion-content {
+            > div {
+              &:first-of-type {
+                label {
+                  &:not(:last-of-type) {
+                    margin-bottom: 20px;
+                  }
+
+                  width: 100%;
+                }
+              }
+
+              &:last-of-type {
+                > div {
+                  &:first-of-type {
+                    label {
+                      width: 100%;
+                      margin-bottom: 20px;
+                    }
+                  }
+
+                  &:last-of-type {
+                    width: 100%;
+
+                    > div {
+                      width: 100%;
+                      margin-bottom: 20px;
+                    }
+                  }
+                }
+
+                > label {
+                  width: 100%;
+                  padding-bottom: 20px;
+
+                  textarea {
+                    padding: 15px 15px;
+                    width: 100%;
+                    height: 335px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        a, button {
+          margin: 30px 0 0;
+        }
+      }
+    }
+  }
+
+  .order-time {
+    padding: 0 20px;
+  }
+}
